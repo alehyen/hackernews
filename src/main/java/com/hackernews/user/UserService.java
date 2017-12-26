@@ -14,4 +14,8 @@ public class UserService {
 	public void addUser(User user) {
 		this.userrepository.save(user);
 	}
+
+	public User getUser(String id) {
+		return this.userrepository.findOne(id);
+	}
 }

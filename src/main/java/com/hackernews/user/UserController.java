@@ -1,7 +1,10 @@
 package com.hackernews.user;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,9 +17,9 @@ public class UserController {
 	@Autowired
 	private UserService userservice;
 	
-	@RequestMapping("/users")
-	public String getAllUsers() {
-		return "All Users";
+	@RequestMapping("/users/{id}")
+	public User getUser(@PathVariable String id) {
+		return this.userservice.getUser(id);
 	}
 	
 	@RequestMapping("/userinfo")

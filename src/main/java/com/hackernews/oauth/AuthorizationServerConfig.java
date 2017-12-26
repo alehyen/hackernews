@@ -42,7 +42,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.scopes("read","write","trust")
 		.resourceIds("oauth2-resource")
 		.accessTokenValiditySeconds(10000)
-		.secret("ismail").refreshTokenValiditySeconds(50000);;
+		.secret("ismail").refreshTokenValiditySeconds(50000);
 	}
 
 	
