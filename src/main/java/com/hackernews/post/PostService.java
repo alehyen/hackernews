@@ -12,5 +12,9 @@ public class PostService {
 	public String getAllPosts() {
 		return "List of all posts";
 	}
+	
+	public void addPost(Post post) {
+		this.postrepository.save(post);
+	}
 
 }

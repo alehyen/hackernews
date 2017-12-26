@@ -1,14 +1,19 @@
 package com.hackernews.post;
 
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
 
 public class Post {
 
+	@Id
 	private String id;
 	private String title;
 	private String body;
 	private Date createdAt;
-	private String writer;
+	private String writerId;
+	private List<Comment> comments;
 	
 	public Post() {
 		
@@ -47,11 +52,19 @@ public class Post {
 	}
 
 	public String getWriter() {
-		return writer;
+		return writerId;
 	}
 
 	public void setWriter(String writer) {
-		this.writer = writer;
+		this.writerId = writer;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 }

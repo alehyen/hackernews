@@ -37,12 +37,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory().withClient("ismail")
-		.authorizedGrantTypes("client_credentials","password")
+		.authorizedGrantTypes("client_credentials","password","refresh_token")
 		.authorities("ROLE_CLIENT","ROLE_TRUSTED_CLIENT")
 		.scopes("read","write","trust")
 		.resourceIds("oauth2-resource")
 		.accessTokenValiditySeconds(10000)
-		.secret("ismail");
+		.secret("ismail").refreshTokenValiditySeconds(50000);;
 	}
 
 	
