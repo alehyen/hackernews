@@ -1,20 +1,15 @@
- package com.hackernews;
+ package com.hackernews.user;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.hackernews.user.User;
-
-public class CustomUserDetails implements UserDetails {
+public class CustomUserDetails extends User implements UserDetails {
 	
-	private String email;
-	private String password;
 	
 	public CustomUserDetails(User byEmail) {
-		this.email= byEmail.getEmail();
-		this.password = byEmail.getPassword();
+		super(byEmail);
 	}
 
 	@Override
@@ -51,6 +46,7 @@ public class CustomUserDetails implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+	
 	
 	
 

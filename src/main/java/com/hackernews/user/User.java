@@ -1,14 +1,32 @@
 package com.hackernews.user;
 
+
+import org.springframework.data.annotation.Id;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
 
-	private String id;
-	private String email;
-	private String password;
+	@Id
+	protected String id;
+	protected String email;
+	@JsonIgnore
+	protected String password;
 	
-	public User(String email, String password) {
+	public User() {
+		
+	}
+	
+	public User(String id,String email, String password) {
+		this.id = id;
 		this.email = email;
 		this.password = password;
+	}
+	
+	public User(User user) {
+		this.id = user.id;
+		this.email = user.email;
+		this.password = user.password;
 	}
 
 	public String getId() {

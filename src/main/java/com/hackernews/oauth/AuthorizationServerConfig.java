@@ -16,16 +16,24 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Autowired 
 	private AuthenticationManager authenticationManager;
 
+	//manage request for authorization
+	// /oauth/token to request access tokens
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(authenticationManager);
+		endpoints
+				.authenticationManager(authenticationManager)
+				.tokenEnhancer(new CustomTokenEnhancer());
 	}
 
+	//security constraints on the tokens 
 	@Override
-	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		security.checkTokenAccess("isAuthenticated");
-	}
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        security
+                .checkTokenAccess("isAuthenticated()");
+                
+    }
 
+	// clients details config
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory().withClient("ismail")
