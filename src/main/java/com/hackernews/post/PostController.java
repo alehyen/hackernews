@@ -40,6 +40,11 @@ public class PostController {
 		this.postservice.deletePost(id);
 	}
 	
+	@RequestMapping(method=RequestMethod.POST , value="/posts/{id}/comments")
+	public void addComment(@PathVariable String id , @RequestBody Comment comment) {
+		this.postservice.addComment(id, comment);
+		
+	}
 	
 	
 	

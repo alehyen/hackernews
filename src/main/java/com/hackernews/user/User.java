@@ -4,13 +4,15 @@ package com.hackernews.user;
 import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 public class User {
 
 	@Id
 	protected String id;
 	protected String email;
-	@JsonIgnore
+	@JsonProperty(access = Access.WRITE_ONLY)
 	protected String password;
 	
 	public User() {
