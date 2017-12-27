@@ -14,7 +14,7 @@ public class Post {
 	private String title;
 	private String body;
 	private Date createdAt;
-	private String writerId;
+	private String author;
 	private List<Comment> comments;
 	
 	public Post() {
@@ -53,12 +53,12 @@ public class Post {
 		this.createdAt = createdAt;
 	}
 
-	public String getWriter() {
-		return writerId;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setWriter(String writer) {
-		this.writerId = writer;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public List<Comment> getComments() {
