@@ -1,4 +1,4 @@
-package com.hackernews.oauth;
+package com.hackernews.config;
 
 import java.util.HashMap;
 import java.util.Map;
